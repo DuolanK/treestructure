@@ -1,8 +1,10 @@
-
 <ul>
         {% for menu in main_menu %}
-            <li>
-                <a href="{{ menu.role }}">{{ menu.first_name }}</a>
-            </li>
+
+                <li><a href="{{ menu.url }}">{{ menu.subcategory }}</a>
+                        {{menu.name}}
+                </li>
+
         {% endfor %}
+
 </ul>

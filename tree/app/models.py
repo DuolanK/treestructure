@@ -1,23 +1,23 @@
 from django.db import models
 
 
-class Employee(models.Model):
-    STANDARD = 'STD'
-    MANAGER = 'MGR'
-    SR_MANAGER = 'SRMGR'
-    PRESIDENT = 'PRES'
+class Menu(models.Model):
+    CHILD = 'CHD'
+    PARENT = 'PRT'
 
-    EMPLOYEE_TYPES = (
-        (STANDARD, 'base employee'),
-        (MANAGER, 'manager'),
-        (SR_MANAGER, 'senior manager'),
-        (PRESIDENT, 'president')
+    MENU_TYPES = (
+        (CHILD, 'категория'),
+        (PARENT, 'родительская_категория'),
     )
 
-    role = models.CharField(max_length=25, choices=EMPLOYEE_TYPES)
-    first_name = models.CharField(max_length=100)
-    last_name = models.CharField(max_length=100)
-    manager = models.ForeignKey('self', null=True, on_delete=models.CASCADE, related_name='employee')
+    subcategory = models.CharField(max_length=25, choices=MENU_TYPES)
+    name = models.CharField(max_length=100)
+    url = models.CharField(max_length=100)
+    category = models.ForeignKey('self', null=True, on_delete=models.CASCADE, related_name='menu')
 
     def __str__(self):
-        return "<Employee: {} {}>".format(self.first_name, self.last_name)
+        return "<Menu: {}>".format(self.name)
+
+    class Meta:
+        verbose_name = 'Категория'
+        verbose_name_plural = 'Категории'

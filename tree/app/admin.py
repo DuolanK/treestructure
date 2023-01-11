@@ -1,12 +1,11 @@
 from django.contrib import admin
-from .models import Employee
+from .models import Menu
 
 
-class EmployeeAdmin(admin.ModelAdmin):
-    list_display = ['role', 'first_name', 'last_name', 'manager']
+class MenuAdmin(admin.ModelAdmin):
+    list_display = ['name']
 
-
-admin.site.register(Employee, EmployeeAdmin)
+admin.site.register(Menu, MenuAdmin)
 
 
 
