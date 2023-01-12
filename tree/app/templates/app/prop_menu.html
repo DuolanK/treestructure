@@ -1,7 +1,7 @@
 <ul>
         {% for menu in main_menu %}
 
-                <li {% if request.path == Menu.url %} class="active" {% endif %}>
+                <li>
     <a href="{{menu.url}}"  >{{menu.name}}</a>
 </li>
 
@@ -9,9 +9,8 @@
 
                 {% for menu in menu %}
 
-                <li >
+                <li {% if request.path == Menu.url %} class="active" {% endif %}>
     <a href="{{menu.url}}"  >{{menu.name}}</a>
-</li>
 
 
 
